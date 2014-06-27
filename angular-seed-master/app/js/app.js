@@ -11,6 +11,6 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/main', {templateUrl: 'partials/main.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/listing', {templateUrl: 'partials/listing.html', controller: 'MyCtrl1'});
+  $routeProvider.when('/listing', {templateUrl: 'partials/listing.html', controller: 'listingController'});
   $routeProvider.otherwise({redirectTo: '/main'});
 }]);
