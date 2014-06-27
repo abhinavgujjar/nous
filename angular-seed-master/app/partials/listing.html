@@ -1,3 +1,14 @@
 <div class="container">
-	This is the listing for all the courses
+
+	<h1>Courses</h1>
+	<br/>
+
+	<div ng-repeat="course in courses" class="row">
+		<div class="col-md-2">picture</div>
+		<div class="col-md-6">
+			<div>{{course.name}}</div>
+			<div>{{course.description}}</div>
+		</div>
+	</div>
+
 </div>
