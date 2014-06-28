@@ -32,7 +32,7 @@
 			<img ng-src="{{course.pic}}" width="100px" />
 		</div>
 		<div class="col-md-6">
-			<div class="h3">{{course.name | uppercase}}</div>
+			<div class="h3"> <a href="#/details"> {{course.name | uppercase}}</a></div>
 			<div>
 				<span ng-hide="showMore">{{course.description | limitTo : 200 }}</span>
 				<span ng-show="showMore">{{course.description}}</span>

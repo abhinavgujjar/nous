@@ -1,0 +1,103 @@
+<div class="container">
+	<div class="row">
+		<div class="h2" >{{course.name}}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 well">
+			<div class="row ">
+				<div class="col-md-6">
+					<img src="http://i.imgur.com/LhNjJ5O.jpg" width="200px"></div>
+				<div class="col-md-6 text-muted">
+					<div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">content</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">delivery</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">value for money</div>
+						</div>
+					</div>
+					<div>
+						<address> <strong>Twitter, Inc.</strong>
+							<br>
+							795 Folsom Ave, Suite 600
+							<br>
+							San Francisco, CA 94107
+							<br> <abbr title="Phone">P:</abbr>
+							(123) 456-7890
+						</address>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="row"></div>
+			<div class="row">
+				<div class="col-md-8">{{course.description | limitTo : 200}}</div>
+				<div class="col-md-4">
+					<button class="btn btn-success form-control">Share</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-4">
+					<span class="h3">Reviews</span>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-4">
+							<span class="pull-right">Useful</span>
+						</div>
+						<div class="col-md-6">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+									<span class="sr-only">60% Complete</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<span class="pull-right text-small">Not Useful</span>
+						</div>
+						<div class="col-md-6">
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+									<span class="sr-only">60% Complete</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<hr/>
+			<div class="row well-sm" >
+				<div class="row">
+					<div class="col-md-2" >
+						<img width="50px" src="http://i.imgur.com/MS1U5C3.jpg"></div>
+					<div class="col-md-10" >
+						<textarea rows="3" class="form-control"></textarea>
+					</div>
+				</div>
+				<div>
+					<small>{{review.name}}</small>
+				</div>
+			</div>
+			<div class="row well-sm" ng-repeat="review in course.reviews">
+				<div class="row">
+					<div class="col-md-2" >
+						<img width="50px" ng-src="{{review.pic}}"></div>
+					<div class="col-md-9" >{{review.comment}}</div>
+				</div>
+				<div>
+					<small>{{review.name}}</small>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

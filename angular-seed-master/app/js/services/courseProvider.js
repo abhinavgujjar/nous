@@ -28,6 +28,9 @@ factory('courseProvider', function() {
 	return {
 		getCourses: function() {
 			return courses;
+		},
+		addCourse : function(course){
+			courses.push(course);
 		}
 	};
 });
