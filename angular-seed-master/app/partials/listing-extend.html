@@ -1,0 +1,51 @@
+<div>
+	<h1>Courses</h1>
+	<br/>
+	<div class="row">
+		<div class="col-md-5">
+			<input type="text" placeholder="Search..." class="form-control" ng-model="searchTerm"/>
+		</div>
+	</div>
+	<br/>
+
+	<div ng-init="counter = Array[courses.length / 2]">
+		<div class="col-md-1" ng-repeat="count in counter">
+			<span>{{$index}}}</span>
+		</div>
+	</div>
+
+	<div ng-repeat="course in courses | filter : searchTerm" class="row">
+		<div class="col-md-1">
+			<div>
+				<a href='' >UP</a>
+			</div>
+			<div>
+				<span class="badge">{{rating}}</span>
+			</div>
+			<div>
+				<a href='' >DOWN</a>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<img ng-src="{{course.pic}}" width="100px" />
+		</div>
+		<div class="col-md-8">
+			<div class="h5">
+				<a href="#/course/{{course.id}}" >{{course.name | uppercase}}</a>
+			</div>
+			<div>
+				<span ng-hide="showMore">{{course.description | limitTo : 200 }}</span>
+				<span ng-show="showMore">{{course.description}}</span>
+				<span ng-show="course.description.length >
+					200 && !showMore">...
+					<span ng-hide="showMore" ng-mouseover="showMore = true">more</span>
+				</span>
+			</div>
+
+		</div>
+		<div class="col-md-1">
+			<button ng-click="addToWishlist(course)" class="btn btn-sm btn-info">add</button>
+		</div>
+
+	</div>
+</div>

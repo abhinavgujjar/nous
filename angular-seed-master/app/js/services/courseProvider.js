@@ -1,56 +1,44 @@
 'use strict';
 
 angular.module('services').
-factory('courseProvider', function() {
+factory('courseProvider', ['$http', '$resource',
+	function($http, $resource) {
 
-	var courses = [{
-		id : "1",
-		name: 'Introduction to Programming',
-		description: 'An introduction to the theory and practice of computer programming, the emphasis of this course is on techniques of program development within the object-oriented paradigm. Topics include control structures, objects, classes, inheritance, simple data structures, and basic concepts of software development. Currently, Java is the programming language used in the course. This course has a required lab component, and is required for the major and minor in computer science. (Offered every semester)',
-		pic: 'http://i.imgur.com/JmGNipQ.png'
-	}, {
-		id : "2",
-		name: 'Data Structures and Algorithms',
-		description: 'This course continues the study of data structures and algorithms, focusing on algorithm design and analysis and the relationships between data representation, algorithm design, and program efficiency. Topics include advanced data structures, key algorithm design techniques, analysis of the time and space requirements of algorithms, and characterizing the difficulty of solving a problem. Concrete examples will be drawn from a variety of domains, such as algorithms for graphs and networks, cryptography, data compression, strings, geometric problems, indexing and search, numerical problems, and parallel computation. This course is required for the major in computer science. Prerequisites: CPSC 225; CPSC 229 is recommended. (Offered annually)',
-		pic: 'http://i.imgur.com/JqSysC9.jpg'
-	}, {
-		id : "3",
-		name: 'Robotics',
-		description: 'An advanced study of the electronics, mechanics, sensors, and programming of robots. Emphasis is placed on programming robots which investigate, analyze, and interact with the environment. Topics may include mobile robots, legged robots, computer vision, and various approaches to robot intelligence. Prerequisite: CPSC 226 or permission of the instructor. (Offered alternate years)',
-		pic: 'http://i.imgur.com/LhNjJ5O.jpg'
-	}, {
-		id : "4",
-		name: 'Artificial Intelligence',
-		description: 'This course serves as an introduction to some of the major problems and techniques in the field of artificial intelligence. Artificial intelligence generally deals with problems that are too large, complex, or poorly-specified to have exact algorithmic solutions. Topics to be covered might include knowledge representation, natural language processing, machine learning, neural nets, case-based reasoning, intelligent agents, and artificial life. Prerequisite: CPSC 327 or 329. (Offered occasionally)',
-		pic: 'http://i.imgur.com/6QS5NKk.jpg'
-	},, {
-		id : "5",
-		name: 'Real Intelligence',
-		description: 'This course serves as an introduction to some of the major problems and techniques in the field of artificial intelligence. Artificial intelligence generally deals with problems that are too large, complex, or poorly-specified to have exact algorithmic solutions. Topics to be covered might include knowledge representation, natural language processing, machine learning, neural nets, case-based reasoning, intelligent agents, and artificial life. Prerequisite: CPSC 327 or 329. (Offered occasionally)',
-		pic: 'http://i.imgur.com/6QS5NKk.jpg'
-	}, ];
+		var selectedCourse;
 
-	var selectedCourse;
+		var courseRef = $resource('http://localhost:8000/app/data/courses.json', null, {
+			get: {
+				method: 'GET',
+				isArray: true
+			}
+		});
+
+		var wishlist = ['C++', 'Delphi'];
+
+		return {
+			getCourses: function() {
+				return courseRef.get();
+			},
+			getCourse: function(id) {
+				// v	ar selectedCourse;
+				// angular.forEach(courses, function(item){
+				// 	if ( item.id === id ){
+				// 		selectedCourse =  item;
+				// 	}
+				// });
+
+				// return selectedCourse;
+			},
+			addCourse: function(course) {
+				//courses.push(course);
+			},
+			selectedCourse: selectedCourse,
+			wishlist : wishlist,
+			addToWishlist : function(course){
+				wishlist.push(course.name);
+			}
 
 
-	return {
-		getCourses: function() {
-			return courses;
-		},
-		getCourse: function(id){
-			var selectedCourse;
-			angular.forEach(courses, function(item){
-				if ( item.id === id ){
-					selectedCourse =  item;
-				}
-			});
-
-			return selectedCourse;
-		},
-		addCourse : function(course){
-			courses.push(course);
-		},
-		selectedCourse : selectedCourse
-
-	};
-});
+		};
+	}
+]);

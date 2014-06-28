@@ -1,49 +1,15 @@
 <div class="container">
 
-	<h1>Courses for {{message}}</h1>
-	<br/>
-
 	<div class="row">
-		<div class="col-md-3">
-			<input type="text" placeholder="Search..." class="form-control" ng-model="searchTerm"/>
+		<div class="col-md-8" ng-controller="coursesController">
+			<ng-include src="'partials/listing-extend.html'" ></ng-include>
 		</div>
-	</div>
-	<br/>
-	<div >{{courses.length / 2}}</div>
-	<div ng-init="counter = Array[courses.length / 2]">
-		<div class="col-md-1" ng-repeat="count in counter">
-			<span>{{$index}}}</span>
+		<div class="col-md-4" ng-controller="wishlistController">
+			<h2>Wishlist</h2>
+			<ul>
+				<li ng-repeat="item in wishlist">{{item}}</li>
+			</ul>
 		</div>
-	</div>
-
-	<div ng-repeat="course in courses | filter : searchTerm" class="row">
-		<div class="col-md-1">
-			<div>
-				<a href='' >UP</a>
-			</div>
-			<div>
-				<span class="badge">{{rating}}</span>
-			</div>
-			<div>
-				<a href='' >DOWN</a>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<img ng-src="{{course.pic}}" width="100px" />
-		</div>
-		<div class="col-md-6">
-			<div class="h3"> <a href="#/course/{{course.id}}" > {{course.name | uppercase}}</a></div>
-			<div>
-				<span ng-hide="showMore">{{course.description | limitTo : 200 }}</span>
-				<span ng-show="showMore">{{course.description}}</span>
-				<span ng-show="course.description.length >
-					200 && !showMore">...
-					<span ng-hide="showMore" ng-mouseover="showMore = true">more</span>
-				</span>
-			</div>
-
-		</div>
-
 	</div>
 
 </div>

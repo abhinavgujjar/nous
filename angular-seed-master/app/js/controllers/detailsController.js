@@ -1,22 +1,26 @@
 'use strict';
 
 angular.module('myApp.controllers')
-	.controller('detailsController', ['$scope', 'courseProvider', '$routeParams', 
-		function($scope, courseProvider, $routeParams) {
+	.controller('detailsController', ['$scope', 'courseProvider', '$routeParams', '$route',
+		function($scope, courseProvider, $routeParams, $route) {
 
-			var id = $routeParams.courseId;
+			var course = courseProvider.selectedCourse;
+			if (!course) {
+				var id = $routeParams.courseId;
+				course = courseProvider.getCourse(id);
+			}
 
-			$scope.course = courseProvider.getCourse(id);
+			$scope.course = course;
 
-			$scope.addReview = function(review){
+			$scope.addReview = function(review) {
 				var fresh = angular.copy(review, fresh);
 
-				if (!$scope.course.reviews ){
+				if (!$scope.course.reviews) {
 					$scope.course.reviews = [];
 				}
 
 				$scope.course.reviews.push(fresh);
-			}			
+			}
 
 		}
 	]);
