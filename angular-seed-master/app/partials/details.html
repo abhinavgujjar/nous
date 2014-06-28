@@ -80,7 +80,10 @@
 					<div class="col-md-2" >
 						<img width="50px" src="http://i.imgur.com/MS1U5C3.jpg"></div>
 					<div class="col-md-10" >
-						<textarea rows="3" class="form-control"></textarea>
+						<textarea rows="3" ng-model="review.comment" class="form-control"></textarea>
+						<div class="pull-right">
+							<button class="btn btn-success" ng-click="addReview(review)">Add</button>
+						</div>
 					</div>
 				</div>
 				<div>

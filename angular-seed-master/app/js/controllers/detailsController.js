@@ -8,5 +8,15 @@ angular.module('myApp.controllers')
 
 			$scope.course = courseProvider.getCourse(id);
 
+			$scope.addReview = function(review){
+				var fresh = angular.copy(review, fresh);
+
+				if (!$scope.course.reviews ){
+					$scope.course.reviews = [];
+				}
+
+				$scope.course.reviews.push(fresh);
+			}			
+
 		}
 	]);
