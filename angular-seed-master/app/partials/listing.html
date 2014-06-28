@@ -1,6 +1,6 @@
 <div class="container">
 
-	<h1>Courses</h1>
+	<h1>Courses for {{message}}</h1>
 	<br/>
 
 	<div class="row">
@@ -9,6 +9,12 @@
 		</div>
 	</div>
 	<br/>
+	<div >{{courses.length / 2}}</div>
+	<div ng-init="counter = Array[courses.length / 2]">
+		<div class="col-md-1" ng-repeat="count in counter">
+			<span>{{$index}}}</span>
+		</div>
+	</div>
 
 	<div ng-repeat="course in courses | filter : searchTerm" class="row">
 		<div class="col-md-1">

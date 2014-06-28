@@ -1,0 +1,41 @@
+<div class="container">
+	<style>
+		input.ng-dirty.ng-invalid {
+			border: 1px solid #f00;
+			background-color: pink;
+		}
+
+		input.ng-valid {
+			border: 1px solid ;
+			background-color: green;
+			color: white;
+		}
+	</style>
+	<h1>Create New Course</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<ng-form class="form-horizontal" name="courseForm" >
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-10">
+						<input type="text" ng-model="course.name" class="form-control" placeholder="Name of the course" required></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Image</label>
+					<div class="col-sm-10">
+						<input type="text" ng-model="course.pic" class="form-control" placeholder="image location" required></div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Description</label>
+					<div class="col-sm-10">
+						<textarea rows="8" class="form-control" ng-model="course.description" placeholder="Description"></textarea></div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button  class="btn btn-default" ng-click="addCourse(course)" ng-disabled="courseForm.$invalid">Add Course</button>
+					</div>
+				</div>
+			</ng-form>
+		</div>
+	</div>
+</div>
