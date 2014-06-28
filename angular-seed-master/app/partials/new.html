@@ -18,12 +18,16 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Name</label>
 					<div class="col-sm-10">
-						<input type="text" ng-model="course.name" class="form-control" placeholder="Name of the course" required></div>
+						<input type="text" ng-model="course.name" class="form-control" placeholder="Name of the course" maxlength="10" required></div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Image</label>
 					<div class="col-sm-10">
-						<input type="text" ng-model="course.pic" class="form-control" placeholder="image location" required></div>
+						<input type="url" ng-model="course.pic" class="form-control" placeholder="image location" required></div>
+				</div><div class="form-group">
+					<label class="col-sm-2 control-label">Date</label>
+					<div class="col-sm-10">
+						<input type="text" ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="course.date" class="form-control" placeholder="dd/mm/yyyy" required></div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Description</label>
